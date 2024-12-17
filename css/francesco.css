@@ -1,0 +1,222 @@
+/* Yleiset tyylit */
+html, body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    background-color: #086a74;
+    padding: 1rem;
+    text-align: center;
+    border-top: 0.15em solid rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    margin: auto; 
+    position: relative; 
+}
+
+/* Navigointi */
+#navbar {
+    background-color: #086a74;
+    padding: 0.5rem;
+    border-bottom: 0.15em solid rgba(0, 0, 0, 0.5);
+}
+
+#navbar .nav-link,
+#navbar .dropdown-toggle {
+    color: white !important;
+    padding: 0.5em 1em;
+}
+
+#navbar .nav-link:hover {
+    background-color: #054c4f;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255) !important;
+}
+
+.dropdown-menu {
+    background-color: #086a74;
+    margin-top: 0.45em !important;
+}
+
+.dropdown-item {
+    color: white;
+    padding: 0.8em 1.5em;
+    border-bottom: 0.1em solid rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-item:hover {
+    background-color: #054c4f;
+}
+
+/* Peli */
+#gameContainer h2 {
+    font-size: 2em;
+    text-decoration: underline;
+    margin-bottom: 2vh;
+}
+
+#gameBody {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#gameBox {
+    background-color: #f9f9f9;
+    border: 2px solid #086a74;
+    border-radius: 15px;
+    padding: 5vh 2vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 90vw;
+    text-align: center;
+}
+
+#images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-top: 3vh;
+}
+
+#images img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+    border: 2px solid #086a74;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#images img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#answerBox {
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #086a74;
+    text-align: center;
+    background-color: #f2f2f2;
+    border: 2px solid #086a74;
+    border-radius: 5px;
+    width: fit-content;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+#hintContainer {
+    margin: 15px 0;
+}
+
+#hintContainer button {
+    background-color: #086a74;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#hintContainer button:hover {
+    background-color: #054c4f;
+}
+
+#hintText {
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1em;
+    font: italic;
+    color: white;
+    text-align: center;
+    background-color: #086a74;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: fit-content;
+    display: inline-block;
+}
+
+/* Animaatiojuttuja vihjeboksiin */
+
+/* Vihjeen tärähdys väärässä vastauksessa */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Vihjeen pomppaus oikeassa vastauksessa */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    30% { transform: translateY(-10px); }
+    50% { transform: translateY(5px); }
+    70% { transform: translateY(0); }
+    100% { transform: translateY(0); }
+}
+
+/* Tärähtävä efekti väärällä vastauksella */
+.shake {
+    animation: shake 0.5s ease forwards;
+}
+
+/* Pomppiva efekti oikealla vastauksella */
+.bounce {
+    animation: bounce 0.5s ease forwards;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 600px) {
+    #navbar .nav-link,
+    #navbar .dropdown-toggle {
+        padding: 0.5em 2em;
+    }
+
+    #gameBox {
+        padding: 10vh 5vh;
+        max-width: 70vw;
+    }
+
+    #images img {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}
+
+@media (min-width: 900px) {
+    #navbar .nav-link,
+    #navbar .dropdown-toggle {
+        padding: 0.5em 3em;
+    }
+
+    #gameBox {
+        padding: 15vh 10vh;
+        max-width: 50vw;
+    }
+
+    #images img {
+        max-width: 200px;
+        max-height: 200px;
+    }
+}

@@ -1,0 +1,205 @@
+*{
+    box-sizing: border-box;
+}
+
+/*VARIABLES*/
+
+:root {
+    --bg-dark: #086a74 !important;
+    --bg-light: #EDF6F9 !important;
+    --text-light: white !important;
+    --text-dark: black !important;
+    --hover-color:#054c4f;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    background-image: url("../images/Aloitus_taustakuva.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; /* Kohdistaa kuvan keskiosan keskelle näyttöä */
+    overflow: hidden;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+header{
+    grid-area: header;
+}
+
+#main-container{
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    text-align: center;
+}
+
+/*FONTIT*/
+
+h1, h2, h3, h4, h5, h6, li, #branding {
+    font-family:'Tahoma', Geneva, Verdana, sans-serif;
+}
+
+#branding {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    margin: 0;
+    padding: 0.5rem 2rem 0.5rem 0.5rem; 
+}
+
+li {
+    font-size: 1.3rem;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size:calc(1.1rem + 1vw);
+}
+
+
+/*HTML ELEMENTIT*/
+
+#navbar, #navbar .nav-link, footer, #welcome-box {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+#navbar{
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.5);
+}
+
+/* navbarin linkit */
+#navbar .nav-link {
+    padding: 0.5rem 1.2rem;
+}
+
+/*hamburger menun avautuminen*/
+#navbarNavDropdown{
+    transition: 50ms ease-in-out;
+}
+
+#navbar .nav-link:hover, .dropdown-item:hover {
+    background-color: var(--hover-color);
+    color:var(--text-light);
+}
+
+#navbar .nav-link.active {
+    background-color: var(--hover-color);
+    color: var(--text-light);
+}
+
+.dropdown-menu {
+    background-color: var(--bg-dark);
+    padding: 0;
+    box-shadow: var(--box-shadow);
+}
+
+.dropdown-item {
+    color: var(--text-light);
+    padding: 0.8rem 1.4rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+
+/*Hamburger ikoni*/
+.navbar-toggler{
+    background-color: white;
+}
+
+
+/* TERVETULOA- LAATIKKO */
+#welcome-box {
+    max-height: 70vh;
+    overflow: auto;
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);  
+}
+
+#welcome-box h1 {
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+#welcome-box h2 {
+    padding: 1rem ;
+}
+
+#welcome-box p {
+    font-size: 1.5rem;
+}
+
+#welcome-boxText{
+    text-align: left;
+    padding: 0 0.5rem;
+}
+
+.btn-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;  /* kuvake vasemmassa laidassa*/
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 20px;
+    padding: 0.2rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;  /* kuvake vasemmassa laidassa*/
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 20px;
+    padding: 0.2rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.btn-left:hover, .btn-right:hover {
+    background-color: var(--hover-color);
+    color: var(--text-light);
+}
+
+.btn-icon-left {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+.btn-icon-right {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+}
+
+.btn-left:focus, .btn-right:focus {
+    outline: none;
+}
+

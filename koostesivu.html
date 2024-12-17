@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOOSTESIVU</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/koostesivu.css">
+</head>
+<body>
+    <div class="grid-container">
+        <header id="header">
+            <nav id="navbar" class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <h1 class="navbar-brand" id="branding" href="#">ENGLANTIA ALKULUOKILLE</h1>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./index.html">ALOITUS</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    MINIPELIT
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./francesco.html">ETSI ASIA JOUKOSTA</a></li>
+                                    <li><a class="dropdown-item" href="./emilia.html">YHDISTÄ KUVA JA SANA</a></li>
+                                    <li><a class="dropdown-item" href="./miia.html">LÖYDÄ SANA</a></li>
+                                    <li><a class="dropdown-item" href="./sanni.html">VASTAA KYSYMYKSIIN</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="./koostesivu.html">KOOSTESIVU</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./infosivu.html">INFOSIVU</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+    <!--"PÄÄALUE NAVIN JA HEADERIN VÄLISSÄ; peli rakennetaan tämän sisälle"-->
+    <div class="container my-4" id="text-container">
+        <div class="row text-center" id="textbox">
+            <div class="col-3"><h5>YHDISTÄ KUVA JA SANA:</h5><p>Pisteitä: <span id="game1Count">0</span> kpl</p></div>
+            <div class="col-3"><h5>ETSI ASIA JOUKOSTA:</h5><p>Pisteitä: <span id="game2Count">0</span> kpl</p></div>
+            <div class="col-3"><h5>LÖYDÄ SANA:</h5><p>Pisteitä: <span id="game3Count">0</span> kpl</p></div>
+            <div class="col-3"><h5>VASTAA KYSYMYKSIIN:</h5><p>Pisteitä: <span id="game4Count">0</span> kpl</p></div>
+        </div>
+
+        <div class="progress-area mt-5">
+            <div class="progress-bar-container">
+                <img id="smiler">
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block finish">
+                    <span style="color: green; font-size: larger; font-weight: 600;">MAALI!</span>
+                </div>
+            </div>
+            <div id="completion-box" class="completion-box">
+                <p1><span id="completionCount"></span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+  <!--FOOTER; kiinnitettynä alas-->
+    <div class="fixed-bottom" id="footer">
+        Web-projekti 2024
+    </div>
+    <script src="./js/koostesivu.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+    ></script>
+</body>
+</html>

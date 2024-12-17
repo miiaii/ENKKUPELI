@@ -1,0 +1,252 @@
+*{
+    box-sizing: border-box;
+}
+
+/*VARIABLES*/
+
+:root {
+    --bg-dark: #086a74 !important;
+    --bg-light: #EDF6F9 !important;
+    --text-light: white !important;
+    --text-dark: black !important;
+    --hover-color:#054c4f;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    background-color: #EDF6F9 !important; 
+    background-image: none !important; 
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+header{
+    grid-area: header;
+}
+
+#main-container{
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:'Tahoma', Geneva, Verdana, sans-serif;
+}
+
+#branding {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    padding: 0.5rem 1.8rem 0.1rem 0.5rem;
+}
+
+li {
+    font-family: 'Tahoma', Geneva, Verdana, sans-serif;
+    font-size: clamp(1rem, 1.5vw, 2rem);
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+}
+
+
+/*HTML ELEMENTIT*/
+
+header, #navbar, #navbar .nav-link, #footer, #welcome-box {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+
+
+#navbar{
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.5);
+}
+
+
+#navbarNavDropdown{
+    transition: 50ms ease-in-out;
+}
+
+#navbar .nav-link:hover, .dropdown-item:hover {
+    background-color: var(--hover-color);
+    color:var(--text-light);
+}
+
+.dropdown-menu {
+    background-color: var(--bg-dark);
+    padding: 0;
+    box-shadow: var(--box-shadow);
+}
+
+.dropdown-item {
+    color: var(--text-light);
+    padding: 0.8rem 1.4rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.navbar-toggler{
+    background-color: white;
+}
+
+#game-box {
+    position: relative;
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    background-color: white;
+    width: 90%; 
+    max-width: 1500px; 
+    height: 90vh; 
+    margin: 0 auto; 
+    margin-top: 50px;
+}
+
+#game-box h2 {
+    padding: 2rem;
+}
+
+@media (min-width: 768px) {
+    #game-box {
+        width: 80%; 
+        height: 80vh; 
+        padding: 3rem; 
+    }
+}
+
+@media (min-width: 1200px) {
+    #game-box {
+        width: 70%; 
+        height: 70vh; 
+        padding: 4rem; 
+        font-size: 1.2rem; 
+    }
+
+    #game-box h2 {
+        font-size: 2rem; 
+    }
+}
+
+
+/* Ohjeet-nappi */
+#show-instructions {
+    position: fixed; 
+    bottom: 45px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 1000; 
+    background-color: #054c4f;  
+    color: white;
+    font-size: 1rem; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+#show-instructions:hover {
+    background-color: #086a74;  
+}
+
+@media (min-width: 768px) {
+    #show-instructions {
+        font-size: 1.2rem; 
+        padding: 15px 30px; 
+    }
+}
+
+@media (min-width: 1200px) {
+    #show-instructions {
+        font-size: 1.5rem; 
+        padding: 20px 40px; 
+    }
+}
+
+
+/* Ohje-laatikon tyylit */
+#instructions {
+    display: none; 
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: white;
+    padding: 20px;
+    width: 80%; 
+    max-width: 500px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.btn-custom {
+    background-color: #054c4f;  
+    color: white;  
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;  
+    transition: background-color 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #054c4f; 
+}
+
+@media (max-width: 767px) {
+    #game-box {
+        margin-top: 60px; 
+    }
+}
+@media (max-width: 767px) {
+    #game-box {
+        width: 100%; 
+        padding: 20px; 
+    }
+}
+
+
+@media (max-width: 768px) {
+    #game-box {
+        width: 90%; 
+        height: 60vh; 
+    }
+}
+
+@media (max-width: 480px) {
+    #game-box {
+        width: 90%; 
+        height: 60vh; 
+    }
+}
+
+
+#footer {
+    height: clamp(5vh, 6vh, 7vh);
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.5);
+    text-align: center;
+    text-decoration-color: black;
+}

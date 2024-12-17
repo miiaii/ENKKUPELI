@@ -1,0 +1,332 @@
+/* !important <- voidaan ohittaa bootstrapin tyylit*/
+
+/*oletuksena fonttikoko yleensä 16px;
+rem = perustuu html-elementin fonttikokoon, esim 0.8rem -> 0.8 x 16px = 12px,
+em = perustuu sen elementin fonttikoolle jossa se käytetään,
+esim jos header fonttikoko määritelty 20px -> headerin sisällä käytettynä 1em = 20px (ja 1rem = 16px) */
+
+*{
+    box-sizing: border-box;
+}
+
+/*VARIABLES*/
+
+:root {
+    --bg-dark: #086a74 !important;
+    --bg-light: #EDF6F9 !important;
+    --text-light: white !important;
+    --text-dark: black !important;
+    --hover-color:#054c4f;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    background-color: var(--bg-light);
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+header{
+    grid-area: header;
+}
+
+#main-container{
+    grid-area: main;
+    background-color: var(--bg-light);
+    display: grid;
+    width: 100vw !important;
+    grid-template-areas:
+        "topArea"
+        "gameContainer"
+        "bottomArea"
+        "footer";
+    grid-template-rows: auto 1fr auto
+}
+
+#topArea{
+    grid-area: topArea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem 1rem;
+}
+
+
+#bottomArea{
+    grid-area: bottomArea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem 1rem;
+}
+
+footer {
+    grid-area: footer;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 0.3rem;
+}
+
+#infoModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#infoModalContent {
+    text-align: left;
+}
+
+#infoModalContent h4{
+    text-align: center;
+    padding-bottom: 0.6rem;
+}
+
+
+/*FONTIT*/
+
+h1, h2, h3, h4, h5, h6, li, #branding {
+    font-family:'Tahoma', Geneva, Verdana, sans-serif;
+}
+
+#branding {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    padding: 0.5rem 1.8rem 0.1rem 0.5rem;
+}
+
+li {
+    font-size: 1.3rem;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3rem;
+}
+
+
+/*HTML ELEMENTIT*/
+
+#navbar, #navbar .nav-link, footer, #welcome-box {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+#navbar{
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.5);
+}
+
+#navbar .nav-link {
+    padding: 0.5rem 1.2rem;
+}
+
+#navbarNavDropdown{
+    transition: 50ms ease-in-out;
+}
+
+#navbar .nav-link:hover, .dropdown-item:hover {
+    background-color: var(--hover-color);
+    color:var(--text-light);
+}
+
+.dropdown-menu {
+    background-color: var(--bg-dark);
+    padding: 0;
+    box-shadow: var(--box-shadow);
+}
+
+.dropdown-item {
+    color: var(--text-light);
+    padding: 0.8rem 1.4rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.navbar-toggler{
+    background-color: white;
+}
+
+
+/*peli osiot*/
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    background-color: white;
+
+
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+    height: 8rem;
+    margin: 0.2rem;
+    border: 1px solid var(--bg-dark);
+    text-align: center;
+    background-color: var(--bg-light);
+}
+
+.card img {
+    width: 95%;
+    height: 95%;
+}
+
+.image-row, .text-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.text-card p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card.selected {
+    border: 3px solid var(--bg-dark);
+    background-color: white;
+
+  }
+
+.card.matched {
+    background-color: var(--bg-light);
+    border: 2px solid var(--bg-dark);
+  }
+
+  .image-row, .text-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+
+
+/*napit*/
+.btn-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;  /* kuvake vasemmassa laidassa*/
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 20px;
+    padding: 0.2rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;  /* kuvake vasemmassa laidassa*/
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 20px;
+    padding: 0.2rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.btn-left:hover, .btn-right:hover {
+    background-color: var(--hover-color);
+    color: var(--text-light);
+}
+
+.btn-icon-left {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+.btn-icon-right {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+}
+
+.btn-left:focus, .btn-right:focus {
+    outline: none;
+}
+
+#infoModal {
+    display: none;
+    position: fixed;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+}
+
+#infoModalContent {
+    text-align: center;
+    height: 80vh;
+    width: 80vw;
+    overflow: auto;
+}
+
+#infoModalContent h4{
+    text-align: center;
+    padding-bottom: 0.6rem;
+}
+
+
+#closeInfoBtn {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    width: 60%;
+    margin: 5% 20% 0 20%;
+    padding: 0.4em;
+    border-radius: 15px;
+    border: 1px solid black;
+    font-size: large;
+}
+
+#closeInfoBtn:hover {
+    background-color: var(--hover-color);
+    font-size: larger;
+}
+
+#xBtn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+
+@media screen and (max-width: 500px) {
+    #game-container {
+        flex-direction: row;}
+}
+

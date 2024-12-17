@@ -1,0 +1,311 @@
+*{
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #086a74 !important;
+    --bg-light: #EDF6F9 !important;
+    --text-light: white !important;
+    --text-dark: black !important;
+    --hover-color:#054c4f;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    background-image: url("../images/Aloitus_taustakuva.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; /* Kohdistaa kuvan keskiosan keskelle näyttöä */
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+header{
+    grid-area: header;
+}
+
+#main-container{
+    grid-area: main;
+    overflow:auto;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    grid-area: footer;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    text-align: center;
+}
+
+/*FONTIT*/
+
+h1, h2, h3, h4, h5, h6, li, #branding {
+    font-family:'Tahoma', Geneva, Verdana, sans-serif;
+}
+
+#branding {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    margin: 0;
+    padding: 0.5rem 2rem 0.5rem 0.5rem; 
+}
+
+li {
+    font-size: 1.3rem;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size:calc(1.1rem + 1vw);
+}
+
+
+/*HTML ELEMENTIT*/
+
+#navbar, #navbar .nav-link, footer, #welcome-box {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+#navbar{
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.5);
+}
+
+#navbar .nav-link.active {
+    background-color: var(--hover-color);
+    color: var(--text-light);
+}
+/* navbarin linkit */
+#navbar .nav-link {
+    padding: 0.5rem 1.2rem;
+}
+
+/*hamburger menun avautuminen*/
+#navbarNavDropdown{
+    transition: 50ms ease-in-out;
+}
+
+#navbar .nav-link:hover, .dropdown-item:hover {
+    background-color: var(--hover-color);
+    color:var(--text-light);
+}
+
+.dropdown-menu {
+    background-color: var(--bg-dark);
+    padding: 0;
+    box-shadow: var(--box-shadow);
+}
+
+.dropdown-item {
+    color: var(--text-light);
+    padding: 0.8rem 1.4rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+
+/*Hamburger ikoni*/
+.navbar-toggler{
+    background-color: white;
+}
+
+
+#textbox {
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 10px;
+    margin: 0;
+    text-align: center;
+}
+
+
+/* Header section styling */
+h5 {
+    font-weight: bold;
+    color: #333333;
+}
+
+/* Progress area styling */
+.progress-area {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.completion-box {
+    opacity: 0;
+}
+
+.progress-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    position: relative;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+
+.block {
+    width: 20%;
+    height: 80px;
+    border: 1px solid #ccc;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 15px;
+}
+
+.block.completed {
+    background-color: var(--hover-color);
+    color: white;
+    font-weight: bold;
+}
+
+#smiler {
+    width: 120px;
+    height: auto;
+    position: absolute;
+    top: -10px;
+    left: -120px;
+    transition: transform 0.5s ease, top 0.5s ease, left 0.5s ease;
+}
+
+/* Fixed footer */
+#footer {
+    background-color: var(--bg-dark);
+    color: white;
+    text-align: center;
+    grid-area: footer;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+}
+
+#branding {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    margin: 0;
+    padding: 0.5rem 2rem 0.5rem 0.5rem; 
+}
+
+li {
+    font-size: 1.3rem;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size:calc(1.1rem + 1vw);
+}
+
+
+/* Responsive styling for specific breakpoints */
+@media (max-width: 1024px) {
+    body {
+        background-size: cover;
+        background-position: center top;
+    }
+
+    .progress-bar-container {
+        width: 80%;
+    }
+
+    #smiler {
+        width: 100px;
+        top: 0px;
+        left: -100px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .progress-bar-container {
+        width: 60%;
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .block {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    #smiler {
+        width: 120px;
+        top: -100px;
+        left: 150px;
+    }
+
+    .completion-box {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        
+    }
+
+    .progress-bar-container {
+        flex-direction: column;
+        width: 90%;
+        padding: 15px;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .block {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .completion-box {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    #smiler {
+        width: 140px;
+        top: -120px;
+        left: 90px;
+    }
+
+    #textbox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 90vw !important;
+    }
+    [class*="col-3"] {
+        width: 100% !important;
+}
+
+}
